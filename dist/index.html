@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="theme-color" content="#0b1220" />
-  <title>车位平面图 · 高清查看与车位推荐</title>
+  <title>车位平面图 · 高清查看与楼栋定位</title>
   <style>
     :root{--ink:#172033;--muted:#657086;--line:#e5e9f1;--panel:#fff;--bg:#f4f7fb;--accent:#1769ff;--accent-2:#08a88a;--danger:#e3483f;--shadow:0 18px 50px rgba(27,39,66,.12)}
     *{box-sizing:border-box} html,body{margin:0;min-height:100%;background:var(--bg);color:var(--ink);font-family:Inter,"PingFang SC","Microsoft YaHei",system-ui,sans-serif} button,input,select{font:inherit} button{cursor:pointer;border:0} a{color:inherit}
@@ -22,19 +22,19 @@
 </head>
 <body>
   <div class="shell">
-    <header><div class="topbar"><div class="brand"><div class="brand-mark">车</div><div><div class="eyebrow">MAKE WAVE · PARKING PLAN</div><div class="title">车位平面图 · 高清查看与车位推荐</div></div></div><div class="head-actions"><span class="subtle">公开查看 · 原图 6509 × 4417</span><a class="btn primary" href="assets/parking-plan-original.jpg" target="_blank" rel="noopener">↗ 打开原图</a></div></div></header>
+    <header><div class="topbar"><div class="brand"><div class="brand-mark">车</div><div><div class="eyebrow">MAKE WAVE · PARKING PLAN</div><div class="title">车位平面图 · 高清查看与楼栋定位</div></div></div><div class="head-actions"><span class="subtle">公开查看 · 原图 6509 × 4417</span><a class="btn primary" href="assets/parking-plan-original.jpg" target="_blank" rel="noopener">↗ 打开原图</a></div></div></header>
     <main class="layout">
       <section class="workspace">
-         <div class="toolbar"><div class="toolbar-left"><span class="toolbar-label">楼栋</span><select class="select" id="buildingSelect" aria-label="选择楼栋"><option value="20" selected>20# 楼</option><option value="19">19# 楼</option><option value="18">18# 楼</option><option value="17">17# 楼</option><option value="16">16# 楼</option><option value="15">15# 楼</option><option value="14">14# 楼</option><option value="13">13# 楼</option><option value="12">12# 楼</option><option value="11">11# 楼</option><option value="10">10# 楼</option><option value="9">9# 楼</option><option value="8">8# 楼</option><option value="7">7# 楼</option><option value="6">6# 楼</option><option value="5">5# 楼</option><option value="4">4# 楼</option><option value="3">3# 楼</option><option value="2">2# 楼</option><option value="1">1# 楼</option></select><select class="select" id="count" aria-label="推荐数量"><option value="10" selected>推荐 10 个</option><option value="20">推荐 20 个</option><option value="30">推荐 30 个</option></select></div><div class="toolbar-right"><label class="toggle"><input id="showEntrances" type="checkbox" checked/> 显示入口</label><label class="toggle"><input id="showSpots" type="checkbox" checked/> 高亮推荐</label><button class="btn" id="openOriginal">⤢ 全屏看图</button></div></div>
-        <div class="map-stage" id="mapStage"><div class="map-viewport" id="viewport"><div class="map-content" id="mapContent"><img src="assets/parking-plan-original.jpg" alt="车位平面图高清原图" draggable="false"/><div class="map-overlay" id="overlay"></div></div></div><div class="map-hud"><button class="hud-btn" id="zoomIn" aria-label="放大">＋</button><div class="zoom-readout" id="zoomReadout">100%</div><button class="hud-btn" id="zoomOut" aria-label="缩小">－</button><button class="hud-btn" id="zoomReset" aria-label="重置视图">↺</button></div><div class="map-foot"><span class="dot"></span><span id="mapHint">点击楼栋标记，查看入口侧推荐</span></div></div>
-        <div class="map-note"><span><strong>操作提示：</strong>滚轮缩放，拖拽平移；点击楼栋圆标查看推荐车位。</span><span>人防墙：粗红线 · 交叉处按门洞处理</span></div>
+         <div class="toolbar"><div class="toolbar-left"><span class="toolbar-label">楼栋</span><select class="select" id="buildingSelect" aria-label="选择楼栋"><option value="20" selected>20# 楼</option><option value="19">19# 楼</option><option value="18">18# 楼</option><option value="17">17# 楼</option><option value="16">16# 楼</option><option value="15">15# 楼</option><option value="14">14# 楼</option><option value="13">13# 楼</option><option value="12">12# 楼</option><option value="11">11# 楼</option><option value="10">10# 楼</option><option value="9">9# 楼</option><option value="8">8# 楼</option><option value="7">7# 楼</option><option value="6">6# 楼</option><option value="5">5# 楼</option><option value="4">4# 楼</option><option value="3">3# 楼</option><option value="2">2# 楼</option><option value="1">1# 楼</option></select></div><div class="toolbar-right"><label class="toggle"><input id="showEntrances" type="checkbox" checked/> 显示入口</label><button class="btn" id="openOriginal">⤢ 全屏看图</button></div></div>
+         <div class="map-stage" id="mapStage"><div class="map-viewport" id="viewport"><div class="map-content" id="mapContent"><img src="assets/parking-plan-original.jpg" alt="车位平面图高清原图" draggable="false"/><div class="map-overlay" id="overlay"></div></div></div><div class="map-hud"><button class="hud-btn" id="zoomIn" aria-label="放大">＋</button><div class="zoom-readout" id="zoomReadout">100%</div><button class="hud-btn" id="zoomOut" aria-label="缩小">－</button><button class="hud-btn" id="zoomReset" aria-label="重置视图">↺</button></div><div class="map-foot"><span class="dot"></span><span id="mapHint">点击楼栋或选择楼栋，自动放大周边车位</span></div></div>
+         <div class="map-note"><span><strong>操作提示：</strong>滚轮缩放，拖拽平移；点击楼栋圆标或切换筛选器，自动定位到楼栋周边。</span><span>人防墙：粗红线 · 交叉处按门洞处理</span></div>
       </section>
       <aside class="side">
-        <section class="side-card" id="detailCard"><div class="selected"><div class="selected-title"><div class="building-badge" id="buildingBadge">20#</div><div><h1 id="buildingTitle">20# 楼</h1><small id="buildingSub">已按入口单边生成推荐</small></div></div><div class="count-badge" id="countBadge">10 个</div></div><div class="entry-box"><div>入口侧<strong id="entrySide">东南侧</strong></div><div>推荐原则<strong>同侧优先 · 避开人防墙</strong></div></div><h2>推荐车位</h2><div class="recommendations" id="recommendations"></div></section>
-        <section class="side-card"><h2>图例与说明</h2><div class="legend"><div class="legend-item"><i class="swatch"></i>标准车位</div><div class="legend-item"><i class="swatch cyan"></i>微型车位</div><div class="legend-item"><i class="swatch blue"></i>子母车位</div><div class="legend-item"><i class="swatch red"></i>人防车位</div><div class="legend-item"><i class="swatch redwall"></i>人防区域 / 墙</div><div class="legend-item"><i class="swatch dot"></i>当前推荐</div></div><div class="notice" style="margin-top:14px">推荐结果是基于平面图入口单边、车道连通和人防墙门洞的图上辅助结果；停车现场请以物业导视、消防通道和实际可用状态为准。</div></section>
+         <section class="side-card" id="detailCard"><div class="selected"><div class="selected-title"><div class="building-badge" id="buildingBadge">20#</div><div><h1 id="buildingTitle">20# 楼</h1><small id="buildingSub">已自动定位到楼栋周边</small></div></div></div><div class="entry-box"><div>入口侧<strong id="entrySide">东南侧</strong></div><div>定位范围<strong id="focusArea">入口及周边车位</strong></div></div><div class="notice">已围绕该楼栋入口自动放大。可继续用滚轮微调，或拖拽查看相邻车位和通道。</div></section>
+         <section class="side-card"><h2>图例与说明</h2><div class="legend"><div class="legend-item"><i class="swatch"></i>标准车位</div><div class="legend-item"><i class="swatch cyan"></i>微型车位</div><div class="legend-item"><i class="swatch blue"></i>子母车位</div><div class="legend-item"><i class="swatch red"></i>人防车位</div><div class="legend-item"><i class="swatch redwall"></i>人防区域 / 墙</div></div><div class="notice" style="margin-top:14px">粗红线为人防墙；人防墙与车道交叉处按门洞查看。停车现场请以物业导视、消防通道和实际可用状态为准。</div></section>
       </aside>
     </main>
-    <div class="footer">公开查看链接 · 高清原图保留原始分辨率 · 推荐仅作停车规划参考</div>
+     <div class="footer">公开查看链接 · 高清原图保留原始分辨率 · 楼栋筛选后自动定位周边车位</div>
   </div>
   <script>
     const buildings = [
@@ -59,29 +59,24 @@
       {id:'2',x:59.0,y:83.8,side:'北侧',zone:'下中区 · 北向车道',start:1091,anchor:[59.0,78.0]},
       {id:'1',x:75.2,y:84.7,side:'西北侧',zone:'右下区 · 西北车道',start:1141,anchor:[72.6,80.0]}
     ];
-    let selected = buildings[0], count = 10, scale = 1, dragging = false, startDrag = null, pan = {x:0,y:0};
+     let selected = buildings[0], scale = 1, dragging = false, startDrag = null, pan = {x:0,y:0};
     const overlay = document.getElementById('overlay'), mapContent = document.getElementById('mapContent'), viewport = document.getElementById('viewport');
     const el = id => document.getElementById(id);
-    function makeSpots(b){return Array.from({length:30},(_,i)=>({id:String(b.start+i),x:b.anchor[0]+((i%5)-2)*1.05,y:b.anchor[1]+Math.floor(i/5)*1.15}));}
     function renderMarkers(){
       overlay.innerHTML='';
-      buildings.forEach(b=>{const m=document.createElement('button');m.className='building-marker'+(b===selected?' active':'');m.style.left=b.x+'%';m.style.top=b.y+'%';m.textContent=b.id+'#';m.title=b.id+'# 楼 · '+b.side+'入口';const choose=()=>{if(selected!==b){selected=b;renderAll();}};m.onclick=choose;m.onfocus=choose;m.onpointerdown=choose;overlay.appendChild(m);});
-      makeSpots(selected).slice(0,count).forEach((s,i)=>{const d=document.createElement('div');d.className='spot-dot show';d.style.left=s.x+'%';d.style.top=s.y+'%';d.innerHTML='<span>'+s.id+'</span>';overlay.appendChild(d);});
+       buildings.forEach(b=>{const m=document.createElement('button');m.className='building-marker'+(b===selected?' active':'');m.style.left=b.x+'%';m.style.top=b.y+'%';m.textContent=b.id+'#';m.title=b.id+'# 楼 · '+b.side+'入口';const choose=()=>{if(selected!==b){selected=b;renderAll(true);}};m.onclick=choose;m.onfocus=choose;m.onpointerdown=choose;overlay.appendChild(m);});
     }
-    function renderRecommendations(){
-      el('buildingBadge').textContent=selected.id+'#';el('buildingTitle').textContent=selected.id+'# 楼';el('buildingSub').textContent='已按入口单边生成推荐';el('entrySide').textContent=selected.side;el('countBadge').textContent=count+' 个';
-      el('recommendations').innerHTML=makeSpots(selected).slice(0,count).map((s,i)=>'<div class="rec"><div class="rank">'+String(i+1).padStart(2,'0')+'</div><div class="rec-main"><strong>'+s.id+' 号车位</strong><span>'+selected.zone+' · 约 '+(18+i*3)+' m 图上步行距离</span></div><div class="rec-tag">同侧可达</div></div>').join('');
-    }
-    function renderAll(){el('buildingSelect').value=selected.id;renderMarkers();renderRecommendations();el('mapHint').textContent=selected.id+'# 楼 · '+selected.side+'入口 · 已高亮 '+count+' 个推荐车位';}
+     function focusOnBuilding(b){const rect=viewport.getBoundingClientRect(), focusX=b.anchor?.[0]||b.x, focusY=b.anchor?.[1]||b.y;scale=2.25;pan={x:-(focusX/100-.5)*rect.width*scale,y:-(focusY/100-.5)*rect.height*scale};applyTransform();}
+     function renderAll(shouldFocus=false){el('buildingSelect').value=selected.id;renderMarkers();el('buildingBadge').textContent=selected.id+'#';el('buildingTitle').textContent=selected.id+'# 楼';el('buildingSub').textContent='已自动定位到楼栋周边';el('entrySide').textContent=selected.side;el('mapHint').textContent=selected.id+'# 楼 · '+selected.side+'入口 · 已定位周边车位';if(shouldFocus)focusOnBuilding(selected);}
     function applyTransform(){mapContent.style.transform='translate(calc(-50% + '+pan.x+'px),calc(-50% + '+pan.y+'px)) scale('+scale+')';el('zoomReadout').textContent=Math.round(scale*100)+'%';}
-    el('buildingSelect').onchange=e=>{selected=buildings.find(b=>b.id===e.target.value)||buildings[0];renderAll()};el('count').onchange=e=>{count=Number(e.target.value);renderAll()};el('showSpots').onchange=e=>document.querySelectorAll('.spot-dot').forEach(x=>x.style.display=e.target.checked?'block':'none');el('showEntrances').onchange=e=>document.querySelectorAll('.building-marker').forEach(x=>x.style.display=e.target.checked?'flex':'none');
+     el('buildingSelect').onchange=e=>{selected=buildings.find(b=>b.id===e.target.value)||buildings[0];renderAll(true)};el('showEntrances').onchange=e=>document.querySelectorAll('.building-marker').forEach(x=>x.style.display=e.target.checked?'flex':'none');
     el('zoomIn').onclick=()=>{scale=Math.min(3,scale+.2);applyTransform()};el('zoomOut').onclick=()=>{scale=Math.max(.7,scale-.2);applyTransform()};el('zoomReset').onclick=()=>{scale=1;pan={x:0,y:0};applyTransform()};
     el('openOriginal').onclick=()=>{if(document.fullscreenElement)document.exitFullscreen();else el('mapStage').requestFullscreen?.()};
     viewport.addEventListener('wheel',e=>{e.preventDefault();scale=Math.max(.7,Math.min(3,scale+(e.deltaY<0?.12:-.12)));applyTransform()},{passive:false});
     viewport.addEventListener('pointerdown',e=>{dragging=true;startDrag={x:e.clientX-pan.x,y:e.clientY-pan.y};viewport.classList.add('dragging');viewport.setPointerCapture(e.pointerId)});
     viewport.addEventListener('pointermove',e=>{if(!dragging)return;pan={x:e.clientX-startDrag.x,y:e.clientY-startDrag.y};applyTransform()});
     viewport.addEventListener('pointerup',()=>{dragging=false;viewport.classList.remove('dragging')});viewport.addEventListener('pointercancel',()=>{dragging=false;viewport.classList.remove('dragging')});
-    renderAll();
+     renderAll();
   </script>
 </body>
 </html>
